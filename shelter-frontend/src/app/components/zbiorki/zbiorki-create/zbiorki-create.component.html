@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-title>Dodaj Zbiórkę</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="create()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwa</mat-label>
+        <input matInput [(ngModel)]="zbiorka.nazwa" name="nazwa" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cel</mat-label>
+        <input matInput [(ngModel)]="zbiorka.cel" name="cel" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Kwota docelowa</mat-label>
+        <input matInput type="number" [(ngModel)]="zbiorka.kwotaDocelowa" name="kwotaDocelowa" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Kwota zebrana</mat-label>
+        <input matInput type="number" [(ngModel)]="zbiorka.kwotaZebrana" name="kwotaZebrana" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Zwierzeta</mat-label>
+        <mat-select [(ngModel)]="zbiorka.zwierzeta" name="zwierzeta" multiple>
+          <mat-option *ngFor="let zwierze of zwierzeta" [value]="zwierze.id">
+            {{ zwierze.imie }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </mat-card-content>
+</mat-card>

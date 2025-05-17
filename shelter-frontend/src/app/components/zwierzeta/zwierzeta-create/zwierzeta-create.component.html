@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-card-title>Dodaj Zwierzę</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="create()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Numer</mat-label>
+        <input matInput [(ngModel)]="zwierze.imie" name="imie" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gatunek</mat-label>
+        <mat-select [(ngModel)]="zwierze.gatunekId" name="gatunekId" required>
+          <mat-option *ngFor="let gatunek of gatunki" [value]="gatunek.id">
+            {{ gatunek.nazwa }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Opiekun</mat-label>
+        <mat-select [(ngModel)]="zwierze.opiekunId" name="opiekunId" required>
+          <mat-option *ngFor="let opiekun of opiekunowie" [value]="opiekun.id">
+            {{ opiekun?.czlowiek?.imie + ' ' + opiekun?.czlowiek?.nazwisko }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Wiek</mat-label>
+        <input matInput type="number" [(ngModel)]="zwierze.wiek" name="wiek" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Stan</mat-label>
+        <mat-select [(ngModel)]="zwierze.stan" name="stan" required>
+          <mat-option *ngFor="let stan of stany" [value]="stan">
+            {{ stanyLabels[stan] }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Miejsce</mat-label>
+        <mat-select [(ngModel)]="zwierze.miejsce" name="miejsce" required>
+          <mat-option *ngFor="let miejsce of miejsca" [value]="miejsce">
+            {{ miejscaLabels[miejsce] }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,39 @@
+package com.patneh.shelter.infrasructure.entities;
+
+import com.patneh.shelter.common.jpa.entity.BaseEntity;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "lecznica")
+public class LecznicaEntity extends BaseEntity {
+
+    @Id
+    @SequenceGenerator(name = "lecznica_id_seq", allocationSize = 1, sequenceName = "lecznica_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lecznica_id_seq")
+    private Long id;
+
+    @Column(nullable = false)
+    private String nazwa;
+
+    @Column(nullable = false)
+    private String adres;
+    
+    private String telefon;
+
+}

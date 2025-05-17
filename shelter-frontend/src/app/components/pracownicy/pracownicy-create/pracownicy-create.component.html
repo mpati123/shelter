@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-title>Dodaj Pracownika</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="create()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Czlowiek</mat-label>
+        <mat-select [(ngModel)]="pracownik.czlowiekId" name="czlowiekId" required>
+          <mat-option *ngFor="let czlowiek of ludzie" [value]="czlowiek.id">
+            {{ czlowiek?.imie + ' ' + czlowiek?.nazwisko }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Stanowisko</mat-label>
+        <mat-select [(ngModel)]="pracownik.stanowisko" name="stanowisko" required>
+          <mat-option *ngFor="let stanowisko of stanowiska" [value]="stanowisko">
+            {{ stanowiskoLabels[stanowisko] }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </mat-card-content>
+</mat-card>

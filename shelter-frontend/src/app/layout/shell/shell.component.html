@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" style="position: fixed; top: 0; width: 100%; z-index: 1000;">
+  <img src="assets/Logo.png" alt="Logo" height="100" style="margin-right: 16px;">
+  <span>Moja Aplikacja Schroniska</span>
+</mat-toolbar>
+<div style="padding: 96px 16px 16px;">
+  <!-- Tu możesz wstawić breadcrumbs -->
+  <nav>
+<!--    <ng-container *ngFor="let crumb of breadcrumbs; let isLast = last">-->
+<!--      <a *ngIf="!isLast" [routerLink]="crumb.url">{{ crumb.label }}</a> /-->
+<!--      <span *ngIf="isLast">{{ crumb.label }}</span>-->
+<!--    </ng-container>-->
+  </nav>
+</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/faktury">Faktury</a>
+      <a mat-list-item routerLink="/zbiorki">Zbiórki</a>
+      <a mat-list-item routerLink="/ludzie">Ludzie</a>
+      <a mat-list-item routerLink="/pracownicy">Pracownicy</a>
+      <a mat-list-item routerLink="/lecznice">Lecznice</a>
+      <a mat-list-item routerLink="/zwierzeta">Zwierzęta</a>
+      <a mat-list-item routerLink="/gatunek">Gatunki</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

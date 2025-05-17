@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title>Dodaj Fakturę</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="create()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Numer</mat-label>
+        <input matInput [(ngModel)]="faktura.numer" name="numer" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Data</mat-label>
+        <input matInput type="date" [(ngModel)]="faktura.data" name="data" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Kwota</mat-label>
+        <input matInput type="number" [(ngModel)]="faktura.kwota" name="kwota" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Lecznica</mat-label>
+        <mat-select [(ngModel)]="faktura.lecznicaId" name="lecznicaId" required>
+          <mat-option *ngFor="let lecznica of lecznice" [value]="lecznica.id">
+            {{ lecznica.nazwa }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Zwierzeta</mat-label>
+        <mat-select [(ngModel)]="faktura.zwierzeta" name="zwierzeta" multiple>
+          <mat-option *ngFor="let zwierze of zwierzeta" [value]="zwierze.id">
+            {{ zwierze.imie }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </mat-card-content>
+</mat-card>

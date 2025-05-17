@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista ludzi</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-flat-button color="primary" routerLink="/ludzie/create">
+        + Dodaj człowieka
+      </button>
+    </mat-card-actions>
+    <app-data-table
+      [displayedColumns]="displayedColumns"
+      [dataSource]="(ludzie$ | async) ?? []"
+      (detailsClicked)="goToDetails($event)"
+      (deleteClicked)="onDelete($event)">
+    </app-data-table>
+    <ng-template #loading>
+      <p>Ładowanie ludzi...</p>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

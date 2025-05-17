@@ -1,0 +1,10 @@
+.faktury-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .faktura-card {
+    max-width: 500px;
+    margin-bottom: 1rem;
+  }
+}

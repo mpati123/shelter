@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>Edycja Gatunku</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="save()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Numer</mat-label>
+        <input matInput [(ngModel)]="gatunek.nazwa" name="nazwa" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Zapisz</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista zwierząt</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-flat-button color="primary" routerLink="/zwierzeta/create">
+        + Dodaj zwierzę
+      </button>
+    </mat-card-actions>
+    <app-data-table
+      [displayedColumns]="displayedColumns"
+      [dataSource]="(zwierzeta$ | async) ?? []"
+      [columnMappings]="columnMappings"
+      (detailsClicked)="goToDetails($event)"
+      (deleteClicked)="onDelete($event)">
+    </app-data-table>
+    <ng-template #loading>
+      <p>Ładowanie zwierząt...</p>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

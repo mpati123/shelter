@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Dodaj Człowieka</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="create()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Imię</mat-label>
+        <input matInput [(ngModel)]="czlowiek.imie" name="imie" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwisko</mat-label>
+        <input matInput [(ngModel)]="czlowiek.nazwisko" name="nazwisko" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="czlowiek.email" name="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Telefon</mat-label>
+        <input matInput [(ngModel)]="czlowiek.telefon" name="telefon" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>Dodaj Lecznicę</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="create()" style="display: flex; flex-direction: column; gap: 16px;">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwa</mat-label>
+        <input matInput [(ngModel)]="lecznica.nazwa" name="nazwa" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Adres</mat-label>
+        <input matInput [(ngModel)]="lecznica.adres" name="adres" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Telefon</mat-label>
+        <input matInput [(ngModel)]="lecznica.telefon" name="telefon" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </mat-card-content>
+</mat-card>
